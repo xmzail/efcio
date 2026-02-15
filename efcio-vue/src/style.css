@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+  .nav-fixed {
+    @apply bg-white shadow-md transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:translate-y-[-5px] hover:shadow-lg transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primaryDark hover:scale-105 transition-all duration-300;
+  }
+  .btn-anniversary {
+    @apply bg-anniversary text-white px-6 py-2 rounded-lg font-medium hover:bg-orange-700 hover:scale-105 transition-all duration-300;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-neutral1 mb-8 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .photo-item:nth-child(2) {
+    grid-row: span 2;
+  }
+  .photo-item:nth-child(5) {
+    grid-column: span 2;
+  }
+  .photo-item:nth-child(7) {
+    grid-row: span 2;
+  }
+}
+
+.preview-mask {
+  @apply fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden;
+}
+.preview-img {
+  @apply max-w-[90%] max-h-[80vh] rounded-lg;
+}
